@@ -1,0 +1,11 @@
+#!/bin/sh
+
+if [ -z "$REVISION" ]; then
+    REVISION="HEAD"
+fi
+
+git clone git@$REPOSITORY $WORKDIR
+cd $WORKDIR
+git reset --hard $REVISION
+apache2ctl restart
+/bin/sh

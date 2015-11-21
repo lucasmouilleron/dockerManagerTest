@@ -18,15 +18,30 @@ RUN apt-get install -y apache2 git wget curl
 RUN apt-get install -y apache2.2-common apache2-utils
 
 #####################################################
-RUN chgrp -R $APACHE_RUN_GROUP /var/www
+EXPOSE 80
+ENV WORKDIR /var/www/html
 
 #####################################################
-EXPOSE 80
-WORKDIR /var/www/html
+RUN rm -rf $WORKDIR
+RUN mkdir $WORKDIR
+RUN chgrp -R $APACHE_RUN_GROUP /var/www
+RUN chown -R $APACHE_RUN_USER /var/www
+RUN cd $WORKDIR
+
+#####################################################
+RUN mkdir $BASE_FOLDER/scripts
+COPY buildAndRun $BASE_FOLDER/scripts/
+RUN chmod -R a+x $BASE_FOLDER/scripts
+ENV PATH $BASE_FOLDER/scripts:$PATH
+
+#####################################################
+ENV REPOSITORY github.com:lucasmouilleron/dockerManagerTest
+COPY id_rsa /root/.ssh/
+RUN ssh-keyscan github.com >> ~/.ssh/known_hosts
 
 #####################################################
 #####################################################
 # RUN
 #####################################################
 #####################################################
-CMD apache2ctl restart && /bin/sh
+CMD $BASE_FOLDER/scripts/buildAndRun
