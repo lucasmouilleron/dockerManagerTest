@@ -14,9 +14,8 @@ ENV APACHE_RUN_GROUP www-data
 
 #####################################################
 RUN apt-get update
-RUN apt-get install -y apache2 git wget curl
-RUN apt-get install -y apache2.2-common apache2-utils
-RUN apt-get install -y php5-common libapache2-mod-php5 php5-cli php5-curl
+RUN apt-get install -y apache2 git
+RUN apt-get install -y php5 libapache2-mod-php5
 RUN a2enmod php5
 
 #####################################################
