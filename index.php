@@ -11,14 +11,14 @@ include __DIR__ . "/" . $ENVIRONMENT . ".config.php";
 
 <?php
 echo "here";
-$servername = "localhost";
+$servername = "127.0.0.1";
 $username = "mysql";
 $password = "thepass";
 $dbname = "main";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) die("Connection failed: " . $conn->connect_error);
-
+echo "connected";
 $sql = "SELECT * FROM test";
 $result = $conn->query($sql);
 
