@@ -18,7 +18,7 @@ RUN apt-get update
 ENV APACHE_RUN_USER www-data
 ENV APACHE_RUN_GROUP www-data
 RUN apt-get install -y apache2 git
-RUN apt-get install -y php5 libapache2-mod-php5
+RUN apt-get install -y php5 libapache2-mod-php5 php5-mysqlnd
 RUN a2enmod php5
 RUN chgrp -R $APACHE_RUN_GROUP /var/www
 RUN chown -R $APACHE_RUN_USER /var/www
@@ -27,6 +27,7 @@ EXPOSE 80
 #####################################################
 ENV MYSQL_USER=mysql
 ENV MYSQL_PASS=thepass
+ENV MYSQL_DATABASE=main
 ENV MYSQL_DATA_DIR=/var/mysql/data
 ENV MYSQL_RUN_DIR=/run/mysqld
 ENV MYSQL_LOG_DIR=/var/log/mysql
