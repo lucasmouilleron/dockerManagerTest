@@ -17,6 +17,7 @@ $password = "thepass";
 $dbname = "main";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
+echo "here20";
 if ($conn->connect_error) die("Connection failed: " . $conn->connect_error);
 echo "connected";
 $sql = "SELECT * FROM test";
