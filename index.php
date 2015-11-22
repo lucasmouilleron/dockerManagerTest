@@ -10,11 +10,12 @@ include __DIR__ . "/" . $ENVIRONMENT . ".config.php";
 <h2>This is a config test : <?php echo TEST; ?></h2>
 
 <?php
-echo "here";
+echo "herel";
 $servername = "127.0.0.1";
 $username = "mysql";
 $password = "thepass";
 $dbname = "main";
+echo "here1";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 echo "here20";
