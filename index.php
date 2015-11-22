@@ -10,6 +10,7 @@ include __DIR__ . "/" . $ENVIRONMENT . ".config.php";
 <h2>This is a config test : <?php echo TEST; ?></h2>
 
 <?php
+echo "here";
 $servername = "localhost";
 $username = "mysql";
 $password = "thepass";
@@ -27,5 +28,5 @@ if ($result->num_rows > 0) {
     }
 } else  echo "0 results";
 $conn->close();
-
+echo "here2";
 ?>
