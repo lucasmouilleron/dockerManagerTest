@@ -3,6 +3,8 @@ dockerManagerTest
 
 Test project for the dockerManger project : https://github.com/lucasmouilleron/dockerManager
 
+![Screenshot](http://grabs.lucasmouilleron.com/Screen%20Shot%202015-11-22%20at%2018.08.45.png)
+
 Notes
 -----
 - This a simple web server container which serves a simple index.html file.
