@@ -1,11 +1,33 @@
 #!/bin/sh
 
+#########################################################
 if [ -z "$REVISION" ]; then
     REVISION="HEAD"
 fi
 
+#########################################################
+# starting servers
+#########################################################
+apache2ctl restart
+/usr/sbin/mysqld &
+
+#########################################################
+# getting sources
+#########################################################
 git clone git@$REPOSITORY $WORKDIR
 cd $WORKDIR
 git reset --hard $REVISION
-apache2ctl restart
+
+#########################################################
+# configuring database
+#########################################################
+#todo imoprt data
+echo "CREATE USER '$MYSQL_USER' IDENTIFIED BY '$MYSQL_PASS'" | mysql --default-character-set=utf8
+echo "REVOKE ALL PRIVILEGES ON *.* FROM '$MYSQL_USER'@'%'; FLUSH PRIVILEGES" | mysql --default-character-set=utf8
+echo "GRANT SELECT ON *.* TO '$MYSQL_USER'@'%'; FLUSH PRIVILEGES" | mysql --default-character-set=utf8
+mysql --default-character-set=utf8 < main.sql
+
+#########################################################
+# go !
+#########################################################
 /bin/sh
