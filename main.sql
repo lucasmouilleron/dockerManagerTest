@@ -1,3 +1,4 @@
+CREATE DATABASE main;
 USE main;
 
 DROP TABLE IF EXISTS `test`;
