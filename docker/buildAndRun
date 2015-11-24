@@ -4,6 +4,9 @@
 if [ -z "$REVISION" ]; then
     REVISION="HEAD"
 fi
+if [ -z "$ENVIRONMENT" ]; then
+    ENVIRONMENT="local"
+fi
 
 #########################################################
 # starting servers
