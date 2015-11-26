@@ -8,5 +8,3 @@ include __DIR__ . "/" . $ENVIRONMENT . ".config.php";
 
 <h2>Running revision <?php echo getenv("REVISION") ?>.</h2>
 <h2>This is a config test : <?php echo TEST; ?></h2>
-
-?>

@@ -25,4 +25,4 @@ if ($result->num_rows > 0) {
 $conn->close();
 ?>
 
-<h2><a href="other.php">Link to other page</a></h2>
+<h2><a href="indexOther.php">Link to other page</a></h2>
