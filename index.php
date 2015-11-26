@@ -26,4 +26,3 @@ $conn->close();
 ?>
 
 <h2><a href="indexOther.php">Link to other page</a></h2>
-<h2><a href="http://192.168.99.100/indexOther.php">Link to other page 2</a></h2>
